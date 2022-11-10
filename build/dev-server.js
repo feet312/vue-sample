@@ -71,7 +71,7 @@ module.exports = app => {
 
   // 보드 태스크 목록 API 엔드포인트 '/lists'
   app.get('/lists', (req, res) => {
-    const token = req.headers['x-kbn-token']
+    const token = req.headers['x-onm-token']
     if (!token) {
       return res.status(403).json({ message: '허가되지 않았습니다' })
     }
@@ -98,9 +98,9 @@ module.exports = app => {
     return task
   }
 
-  // タスク 추가 API 엔드포인트 '/tasks/add'
+  // 태스크 추가 API 엔드포인트 '/tasks/add'
   app.post('/tasks/add', (req, res) => {
-    const token = req.headers['x-kbn-token']
+    const token = req.headers['x-onm-token']
     if (!token) {
       return res.status(403).json({ message: '허가되지 않았습니다' })
     }
@@ -136,7 +136,7 @@ module.exports = app => {
 
   // 태스크 수정 API 엔드포인트 '/tasks/:id/update'
   app.put('/tasks/:id/update', (req, res) => {
-    const token = req.headers['x-kbn-token']
+    const token = req.headers['x-onm-token']
     if (!token) {
       return res.status(403).json({ message: '허가되지 않았습니다' })
     }
@@ -161,7 +161,7 @@ module.exports = app => {
 
   // 태스크 삭제 API 엔드포인트 '/task/:id/remove'
   app.delete('/tasks/:id/remove', (req, res) => {
-    const token = req.headers['x-kbn-token']
+    const token = req.headers['x-onm-token']
     if (!token) {
       return res.status(403).json({ message: '허가되지 않았습니다' })
     }
@@ -172,7 +172,7 @@ module.exports = app => {
 
   // 태스크 이동 API 엔드포인트 '/task/:id/move'
   app.post('/tasks/:id/move', (req, res) => {
-    const token = req.headers['x-kbn-token']
+    const token = req.headers['x-onm-token']
     if (!token) {
       return res.status(403).json({ message: '허가되지 않았습니다' })
     }
@@ -200,7 +200,7 @@ module.exports = app => {
 
   // 로그아웃 API 엔드포인트 '/auth/logout'
   app.delete('/auth/logout', (req, res) => {
-    const token = req.headers['x-kbn-token']
+    const token = req.headers['x-onm-token']
     if (!token) {
       return res.status(403).json({ message: '허가되지 않았습니다' })
     }
