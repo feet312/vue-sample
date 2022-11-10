@@ -69,5 +69,13 @@ export default {
         commit(types.AUTH_LOGOUT, { token: null, userId: null })
       })
       .catch(err => { throw err })
+  },
+
+  getUser: ({ commit, state }) => {
+    return List.getUser(state.auth.token)
+      .then(({ lists }) => {
+        commit(types.FETCH_ALL_TASKLIST, lists)
+      })
+      .catch(err => { throw err })
   }
 }

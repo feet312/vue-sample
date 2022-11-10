@@ -1,7 +1,11 @@
 <template>
   <nav class="board-navigation">
     <div class="title">
-      <h1>Kanban App</h1>
+      <KbnButton
+        type="text"
+        @click="getUser"
+      >getUser</KbnButton>
+      <h1>SKSignet O&M</h1>
     </div>
     <div class="actions">
       <KbnButton
@@ -22,6 +26,18 @@ export default {
 
   components: {
     KbnButton
+  },
+
+  methods: {
+    getUser () {
+      alert('call getUser')
+
+      return this.$store.dispatch('getUser')
+        .then(res => {
+          console.log(res)
+        })
+        .catch(err => Promise.reject(err))
+    }
   }
 }
 </script>
